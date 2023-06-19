@@ -54,7 +54,10 @@ const config = {
   overrides: [
     {
       files: ['**/*.ts?(x)'],
-      rules: { 'prettier/prettier': 'warn' },
+      parserOptions: {
+        project: './tsconfig.json',
+      },
+      rules: { 'prettier/prettier': 'warn', '@typescript-eslint/no-unnecessary-condition': 'error' },
     },
     {
       files: ['internals/**'],
