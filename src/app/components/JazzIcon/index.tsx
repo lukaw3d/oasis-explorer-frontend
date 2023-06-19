@@ -11,7 +11,7 @@ export const JazzIcon = memo(({ diameter, seed }: JazzIconProps) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (ref?.current) {
+    if (ref.current) {
       const icon = jazzicon(diameter, seed)
 
       ref.current.replaceChildren(icon)

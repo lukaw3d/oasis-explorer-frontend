@@ -38,7 +38,7 @@ export const Footer: FC<FooterProps> = ({ scope, mobileSearchAction }) => {
         {isTablet ? (
           <AppendMobileSearch scope={scope} action={isMobile && mobileSearchAction}>
             <Typography variant="footer">
-              {isTablet ? t('footer.mobileTitle') : t('footer.title')} | {currentYear}
+              {t('footer.mobileTitle')} | {currentYear}
             </Typography>
           </AppendMobileSearch>
         ) : (
@@ -92,7 +92,7 @@ export const Footer: FC<FooterProps> = ({ scope, mobileSearchAction }) => {
             )}
 
             <Typography variant="footer">
-              {isTablet ? t('footer.mobileTitle') : t('footer.title')} | {currentYear}
+              {t('footer.title')} | {currentYear}
             </Typography>
           </>
         )}

@@ -341,12 +341,8 @@ export const useGetRuntimeAccountsAddress: typeof _f7 = (network, runtime, addre
             network,
             stats: {
               ...data.stats,
-              total_received: data.stats?.total_received
-                ? fromBaseUnits(data.stats?.total_received, paraTimesConfig[runtime].decimals)
-                : '0',
-              total_sent: data.stats?.total_sent
-                ? fromBaseUnits(data.stats?.total_sent, paraTimesConfig[runtime].decimals)
-                : '0',
+              total_received: fromBaseUnits(data.stats.total_received, paraTimesConfig[runtime].decimals),
+              total_sent: fromBaseUnits(data.stats.total_sent, paraTimesConfig[runtime].decimals),
             },
             ticker,
           })

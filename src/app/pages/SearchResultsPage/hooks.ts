@@ -106,12 +106,11 @@ export const useSearch = (q: SearchParams) => {
     evmBech32Account: useRuntimeAccountConditionally(q.evmBech32Account),
   }
   const isLoading = Object.values(queries).some(query => query.isLoading)
-  const blocks = queries.blockHeight.results || []
-  const transactions = queries.txHash.results || []
-  const accounts = [
-    ...(queries.oasisAccount.results || []),
-    ...(queries.evmBech32Account.results || []),
-  ].filter(isAccountNonEmpty)
+  const blocks = queries.blockHeight.results
+  const transactions = queries.txHash.results
+  const accounts = [...queries.oasisAccount.results, ...queries.evmBech32Account.results].filter(
+    isAccountNonEmpty,
+  )
   const results: SearchResultItem[] = isLoading
     ? []
     : [

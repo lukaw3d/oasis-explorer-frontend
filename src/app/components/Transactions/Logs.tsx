@@ -23,7 +23,7 @@ export const TransactionLogs: FC<{
   return (
     <TransactionLogsView
       scope={transaction}
-      events={data?.data?.events}
+      events={data?.data.events}
       isLoading={isLoading}
       isError={isError}
       addressSwitchOption={addressSwitchOption}

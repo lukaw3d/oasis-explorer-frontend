@@ -21,7 +21,7 @@ export const useRuntimeFreshness = (scope: SearchScope): FreshnessInfo => {
     throw new AppError(AppErrors.UnsupportedLayer)
   }
   const query = useGetRuntimeStatus(scope.network, scope.layer)
-  const timeDistance = useFormattedTimestampString(query?.data?.data.latest_update)
+  const timeDistance = useFormattedTimestampString(query.data?.data.latest_update)
   if (query.isLoading) {
     return {
       outOfDate: undefined,

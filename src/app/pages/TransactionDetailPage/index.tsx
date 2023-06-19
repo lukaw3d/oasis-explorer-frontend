@@ -223,7 +223,7 @@ export const TransactionDetailView: FC<{
             </>
           )}
 
-          {(transaction?.hash || transaction?.eth_hash) && (
+          {(transaction.hash || transaction.eth_hash) && (
             <>
               <dt>{t('common.hash')}</dt>
               <dd>
@@ -239,7 +239,7 @@ export const TransactionDetailView: FC<{
                   <TransactionLink
                     scope={transaction}
                     hash={
-                      hash || ((isOasisAddressFormat ? transaction?.eth_hash : transaction?.hash) as string)
+                      hash || ((isOasisAddressFormat ? transaction.eth_hash : transaction.hash) as string)
                     }
                     plain={!hash}
                   />
@@ -272,7 +272,7 @@ export const TransactionDetailView: FC<{
           <dt>{t('common.timestamp')}</dt>
           <dd>{formattedTimestamp}</dd>
 
-          {(transaction?.sender_0 || transaction?.sender_0_eth) && (
+          {(transaction.sender_0 || transaction.sender_0_eth) && (
             <>
               <dt>{t('common.from')}</dt>
               <dd>
@@ -289,7 +289,7 @@ export const TransactionDetailView: FC<{
                     scope={transaction}
                     address={
                       from ||
-                      ((isOasisAddressFormat ? transaction?.sender_0_eth : transaction?.sender_0) as string)
+                      ((isOasisAddressFormat ? transaction.sender_0_eth : transaction.sender_0) as string)
                     }
                     plain={!from}
                   />
@@ -299,7 +299,7 @@ export const TransactionDetailView: FC<{
             </>
           )}
 
-          {(transaction?.to || transaction?.to_eth) && (
+          {(transaction.to || transaction.to_eth) && (
             <>
               <dt>{t('common.to')}</dt>
               <dd>
@@ -314,7 +314,7 @@ export const TransactionDetailView: FC<{
                 >
                   <AccountLink
                     scope={transaction}
-                    address={to || ((isOasisAddressFormat ? transaction?.to_eth : transaction?.to) as string)}
+                    address={to || ((isOasisAddressFormat ? transaction.to_eth : transaction.to) as string)}
                     plain={!to}
                   />
                 </TransactionInfoTooltip>
@@ -327,7 +327,6 @@ export const TransactionDetailView: FC<{
           <dd>{t('common.valueInToken', { value: transaction.amount, ticker: tickerName })}</dd>
 
           {transaction.amount !== undefined &&
-            !!tokenPriceInfo &&
             !tokenPriceInfo.isLoading &&
             !tokenPriceInfo.isFree &&
             tokenPriceInfo.price !== undefined && (
