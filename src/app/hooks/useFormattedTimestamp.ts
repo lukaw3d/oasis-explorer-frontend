@@ -29,3 +29,19 @@ export const useFormattedTimestamp = (timestamp: Date | undefined) => {
 
 export const useFormattedTimestampString = (timestamp: string | undefined) =>
   useFormattedTimestamp(timestamp ? new Date(timestamp) : undefined)
+
+page.addInitScript(() => {
+  window.Date = class extends Date {
+    constructor(...args: any[]) {
+      if (args.length === 0) {
+        super(2023, 1, 1)
+      } else {
+        // @ts-expect-error Ignore error that spread argument is not typed as tuple
+        super(...args)
+      }
+    }
+    now() {
+      return new Date().getTime()
+    }
+  }
+})
